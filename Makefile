@@ -1,9 +1,8 @@
-CFLAGS  = -g -Os -Wall 
-LDFLAGS = -fPIC -shared -llua
+CFLAGS  = -g -Os -Wall -fPIC -shared
 TARGET  = example
 
 all:
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $(TARGET).so $(TARGET).c
+	$(CC) $(CFLAGS) -o $(TARGET).so $(TARGET).c
 clean:
 	$(RM) $(TARGET).so
 install:
