@@ -42,20 +42,17 @@ int multiply( lua_State *L )
 }
 
 /**
-* Define mappings.
-*/
-const struct luaL_reg R[] =
-{
-    {"addition",  addition},
-    {"multiply",  multiply},
-    {NULL,    NULL}
-};
-
-/**
 * Register mappings.
 */
 int luaopen_example( lua_State *L )
 {
-    luaL_openlib( L, "example", R, 0 );
+    struct luaL_reg M[] =
+    {
+      {"addition", addition},
+      {"multiply", multiply},
+      {NULL,NULL}
+    };
+
+    luaL_register( L, "example", M );
     return 1;
 }
